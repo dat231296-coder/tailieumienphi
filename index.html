@@ -118,36 +118,6 @@
         </div>
     </div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-4 py-20">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Bên Trong Bộ Tài Liệu Có Gì?</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-2xl hover:border-blue-500/50 transition duration-300">
-                <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center mb-6 text-blue-400">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">100+ Prompt AI Cao Cấp</h3>
-                <p class="text-gray-400 text-sm">Các câu lệnh được tinh chỉnh để tạo ra kịch bản video TikTok, bài đăng Facebook và Email Marketing chuẩn SEO.</p>
-            </div>
-
-            <div class="glass p-8 rounded-2xl hover:border-purple-500/50 transition duration-300">
-                <div class="w-14 h-14 bg-purple-900/50 rounded-xl flex items-center justify-center mb-6 text-purple-400">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Workflow n8n Tự Động</h3>
-                <p class="text-gray-400 text-sm">File cấu hình mẫu (JSON) để bạn import vào n8n. Tự động hóa việc đăng bài, gửi email và thu thập leads.</p>
-            </div>
-
-            <div class="glass p-8 rounded-2xl hover:border-green-500/50 transition duration-300">
-                <div class="w-14 h-14 bg-green-900/50 rounded-xl flex items-center justify-center mb-6 text-green-400">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Bí Mật Tối Ưu Ads</h3>
-                <p class="text-gray-400 text-sm">Tài liệu hướng dẫn cách target đúng tệp khách hàng, kỹ thuật vít ngân sách mà không làm nát tài khoản.</p>
-            </div>
-        </div>
-    </div>
-
     <div id="register-form" class="relative z-10 max-w-4xl mx-auto px-4 py-20">
         <div class="glass p-1 rounded-3xl bg-gradient-to-b from-white/10 to-transparent">
             <div class="bg-dark-900/90 backdrop-blur-xl rounded-[22px] p-8 md:p-12 shadow-2xl">
@@ -192,16 +162,6 @@
                     </button>
                 </form>
 
-                <div id="successMessage" class="hidden text-center mt-8 p-6 bg-green-500/10 border border-green-500/20 rounded-xl">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-500/20 text-green-400 mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-2">Đăng Ký Thành Công!</h4>
-                    <p class="text-gray-300">
-                        Hệ thống đã ghi nhận thông tin. Vui lòng kiểm tra Email (cả mục Spam/Promotions) sau 1-2 phút nữa để nhận Link tải nhé.
-                    </p>
-                </div>
-
             </div>
         </div>
     </div>
@@ -215,12 +175,14 @@
         function submitToSheetMonkey(e) {
             e.preventDefault();
             
-            // LINK SHEETMONKEY CHÍNH CHỦ CỦA BẠN:
+            // LINK SHEETMONKEY CỦA BẠN:
             const sheetMonkeyURL = 'https://api.sheetmonkey.io/form/6Zb4HX6ZyFWDhV59F8di8p'; 
             
+            // LINK ZALO NHÓM CỦA BẠN:
+            const zaloGroupURL = 'https://zalo.me/g/lflsmb016';
+
             const form = document.getElementById('optinForm');
             const btn = document.getElementById('submitBtn');
-            const successMsg = document.getElementById('successMessage');
 
             // 1. Hiệu ứng Loading
             const originalBtnText = btn.innerHTML;
@@ -235,18 +197,25 @@
                 method: 'POST',
                 body: formData
             }).then(() => {
-                // Luôn chạy vào đây nếu gửi thành công
-                finishSubmission();
+                // Gửi thành công -> Chuyển hướng
+                redirectZalo();
             }).catch(error => {
-                // Nếu có lỗi nhỏ, vẫn hiện thông báo thành công cho khách an tâm (như bạn yêu cầu)
-                console.log('Done with error', error);
-                finishSubmission();
+                // Có lỗi nhỏ (do mạng) -> Vẫn cho chuyển hướng
+                console.log('Redirecting anyway...', error);
+                redirectZalo();
             });
 
-            function finishSubmission() {
-                form.style.display = 'none'; // Ẩn form
-                successMsg.classList.remove('hidden'); // Hiện bảng Success
-                successMsg.classList.add('animate-fade-in-up'); // Hiệu ứng bay lên
+            // Hàm chuyển hướng sang Zalo
+            function redirectZalo() {
+                // Đổi nút bấm thành màu xanh lá + Thông báo
+                btn.classList.remove('from-blue-600', 'to-accent-500');
+                btn.classList.add('bg-green-600', 'text-white');
+                btn.innerHTML = '✅ Thành công! Đang mở Zalo...';
+                
+                // Đợi 1 giây cho người dùng đọc rồi chuyển hướng
+                setTimeout(() => {
+                    window.location.href = zaloGroupURL;
+                }, 1000);
             }
         }
     </script>
